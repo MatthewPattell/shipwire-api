@@ -20,6 +20,13 @@ use flydreamers\shipwire\exceptions\ShipwireConnectionException;
 class Product extends ShipwireComponent
 {
     /**
+     * Battery configuration
+     */
+    const BATTERY_NOBATTERY         = 'NOBATTERY';
+    const BATTERY_ISBATTERY         = 'ISBATTERY';
+    const BATTERY_HASLOOSEBATTERY   = 'HASLOOSEBATTERY';
+
+    /**
      * Creates an product.
      *
      * @param array $productData
@@ -66,6 +73,22 @@ class Product extends ShipwireComponent
             'HOME_&_GARDEN'             => 'Home & Garden',
             'TOYS_SPORTS_HOBBIES'       => 'Toys, Sports & Hobbies',
             'OTHER'                     => 'Other'
+        ];
+    }
+
+    /**
+     * List battery types
+     *
+     * @return array
+     */
+    public static function getBatteryTypes()
+    {
+        return [
+            'LI-ON'         => 'LI-on',
+            'LI-POLYMER'    => 'Li-polymer',
+            'NICAD'         => 'NiCad',
+            'LEADACID'      => 'Lead Acid',
+            'ALKALINE'      => 'Alkaline'
         ];
     }
 }
