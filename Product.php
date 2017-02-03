@@ -47,4 +47,25 @@ class Product extends ShipwireComponent
             return ['code' => $exception->getCode(), 'error' => $exception->getMessage()];
         }
     }
+
+    /**
+     * List shipwire categories
+     *
+     * @return array
+     */
+    public static function getCategories()
+    {
+        return [
+            'APPAREL'                   => 'Apparel, Shoes & Jewelry',
+            'AUTOMOTIVE'                => 'Auto Parts & Accessories',
+            'BOOKS_&_ENTERTAINMENT'     => 'Books, Movies & Music',
+            'COMPUTER_ELECTRONICS'      => 'Computers & Electronics',
+            'FOOD_&_BEVERAGE'           => 'Food & Beverage',
+            'FURNITURE_&_APPLIANCES'    => 'Furniture & Appliances',
+            'HEALTH_&_PERSONAL_CARE'    => 'Health & Personal Care',
+            'HOME_&_GARDEN'             => 'Home & Garden',
+            'TOYS_SPORTS_HOBBIES'       => 'Toys, Sports & Hobbies',
+            'OTHER'                     => 'Other'
+        ];
+    }
 }
