@@ -153,7 +153,13 @@ class ShipwireConnector
 
             if ($data['status'] >= 300) {
                 throw new ShipwireConnectionException($data['message'], $data['status']);
+            } elseif (!empty($data['errors'])) {
+                $data['resource'] = [
+                    'errors' => $data['errors'],
+                    'resource'  => $data['resource']
+                ];
             }
+
             return $onlyResource?$data['resource']:$data;
         } catch (RequestException $e) {
             if ($responseBody = $e->getResponse()->getBody()) {
@@ -170,8 +176,10 @@ class ShipwireConnector
                 throw new ShipwireConnectionException($data['message'], $data['status']);
             }
         } catch (\Exception $exception) {
-            throw $exception;
+            $e = $exception;
         }
+
+        throw $e;
     }
 
     /**

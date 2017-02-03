@@ -76,6 +76,23 @@ class ShipwireComponent
      * @throws \flydreamers\shipwire\exceptions\ShipwireConnectionException
      */
     protected function put($route, $params, $body, $onlyResource=true){
-        return $this->_connector->api($route, $params, ShipwireConnector::PUT, $body,$onlyResource);
+        return $this->_connector->api($route, $params, ShipwireConnector::PUT, $body, $onlyResource);
     }
+
+    /**
+     * Transform the route with the given orderId
+     *
+     * @param string $route
+     * @param null|string|int $Id
+     * @return string
+     */
+    protected function getRoute($route, $Id = null)
+    {
+        if ($Id !== null) {
+            return strtr($route, ['{id}' => $Id]);
+        }
+
+        return $route;
+    }
+
 }

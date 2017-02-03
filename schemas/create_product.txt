@@ -1,0 +1,106 @@
+[
+    'sku'                   => 'TEST-API-SKU',
+    'externalId'            => 'narp',
+    'classification'        => 'baseProduct',
+    'description'           => 'description',
+    'hsCode'                => '', // @see http://www.foreign-trade.com/reference/hscode.htm
+    'countryOfOrigin'       => 'US',
+    'category'              => 'TOYS_SPORTS_HOBBIES',
+    'batteryConfiguration'  => 'NOBATTERY', // NOBATTERY, ISBATTERY, HASLOOSEBATTERY
+    'values'    => [
+        'costValue'         => 1,
+        'wholesaleValue'    => 2,
+        'retailValue'       => 4,
+        'costCurrency'      => 'USD',
+        'wholesaleCurrency' => 'USD',
+        'retailCurrency'    => 'USD',
+    ],
+    'dimensions' => [
+        'length'    => 1,
+        'width'     => 1,
+        'height'    => 1,
+        'weight'    => 1,
+    ],
+    'flags' => [
+        'isPackagedReadyToShip' => 0,
+        'isFragile'             => 1,
+        'isDangerous'           => 0,
+        'isPerishable'          => 0,
+        'isMedia'               => 0,
+        'isAdult'               => 1,
+        'isLiquid'              => 0,
+        'hasInnerPack'          => 1,
+        'hasMasterCase'         => 1,
+        'hasPallet'             => 1,
+        'hasBattery'            => 0,
+    ],
+    'innerPack' => [
+        'individualItemsPerCase'    => 2,
+        'externalId'                => 'narp2',
+        'sku'                       => 'singleInner2',
+        'description'               => 'innerdesc',
+        'values'    => [
+            'costValue'         => 1,
+            'wholesaleValue'    => 2,
+            'retailValue'       => 4,
+            'costCurrency'      => 'USD',
+            'wholesaleCurrency' => 'USD',
+            'retailCurrency'    => 'USD',
+        ],
+        'dimensions' => [
+            'length'    => 2,
+            'width'     => 2,
+            'height'    => 2,
+            'weight'    => 2,
+        ],
+        'flags' => [
+            'isPackagedReadyToShip' => 0
+        ]
+    ],
+    'masterCase' => [
+        'individualItemsPerCase'    => 10,
+        'externalId'                => 'narp3',
+        'sku'                       => 'singleMaster2',
+        'description'               => 'masterdesc',
+        'values'    => [
+            'costValue'         => 1,
+            'wholesaleValue'    => 2,
+            'retailValue'       => 4,
+            'costCurrency'      => 'USD',
+            'wholesaleCurrency' => 'USD',
+            'retailCurrency'    => 'USD',
+        ],
+        'dimensions' => [
+            'length'    => 4,
+            'width'     => 4,
+            'height'    => 4,
+            'weight'    => 4,
+        ],
+        'flags' => [
+            'isPackagedReadyToShip' => 0
+        ]
+    ],
+    'pallet' => [
+        'individualItemsPerCase'    => 1000,
+        'externalId'                => 'narp4',
+        'sku'                       => 'singlePallet2',
+        'description'               => 'palletdesc',
+        'values'    => [
+            'costValue'         => 1,
+            'wholesaleValue'    => 2,
+            'retailValue'       => 4,
+            'costCurrency'      => 'USD',
+            'wholesaleCurrency' => 'USD',
+            'retailCurrency'    => 'USD',
+        ],
+        'dimensions' => [
+            'length'    => 8,
+            'width'     => 8,
+            'height'    => 8,
+            'weight'    => 8,
+        ],
+        'flags' => [
+            'isPackagedReadyToShip' => 0
+        ]
+    ]
+]

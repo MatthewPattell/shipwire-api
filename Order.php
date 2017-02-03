@@ -50,21 +50,6 @@ class Order extends ShipwireComponent
     }
 
     /**
-     * Transform the route with the given orderId
-     * @param $route
-     * @param null $orderId
-     * @return string
-     */
-    private function getRoute($route, $orderId = null)
-    {
-        if ($orderId !== null) {
-            return strtr($route, ['{id}' => $orderId]);
-        }
-        return $route;
-    }
-
-
-    /**
      * Get the list of holds, if any, on an order
      * @param $orderId
      * @param array $params
