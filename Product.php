@@ -27,33 +27,12 @@ class Product extends ShipwireComponent
     const BATTERY_HASLOOSEBATTERY   = 'HASLOOSEBATTERY';
 
     /**
-     * Creates an product.
-     *
-     * @param array $productData
-     * @param array $params
-     * @return array|bool
+     * Product types
      */
-    public function create($productData, $params = [])
-    {
-        return $this->post('products', $params, json_encode($productData));
-    }
-
-    /**
-     * Update product details.
-     *
-     * @param string $productID
-     * @param $productData
-     * @param array $params
-     * @return array|bool
-     */
-    public function update($productID, $productData, $params = [])
-    {
-        try {
-            return $this->put($this->getRoute('products/{id}', $productID), $params, json_encode($productData));
-        } catch (ShipwireConnectionException $exception) {
-            return ['code' => $exception->getCode(), 'error' => $exception->getMessage()];
-        }
-    }
+    const TYPE_BASEPRODUCT      = 'baseProduct';
+    const TYPE_KIT              = 'kit';
+    const TYPE_MARKETINGINSERT  = 'marketingInsert';
+    const TYPE_VIRTUALKIT       = 'virtualKit';
 
     /**
      * List shipwire categories
@@ -90,5 +69,34 @@ class Product extends ShipwireComponent
             'LEADACID'      => 'Lead Acid',
             'ALKALINE'      => 'Alkaline'
         ];
+    }
+
+    /**
+     * Creates an product.
+     *
+     * @param array $productData
+     * @param array $params
+     * @return array|bool
+     */
+    public function create($productData, $params = [])
+    {
+        return $this->post('products', $params, json_encode($productData));
+    }
+
+    /**
+     * Update product details.
+     *
+     * @param string $productID
+     * @param $productData
+     * @param array $params
+     * @return array|bool
+     */
+    public function update($productID, $productData, $params = [])
+    {
+        try {
+            return $this->put($this->getRoute('products/{id}', $productID), $params, json_encode($productData));
+        } catch (ShipwireConnectionException $exception) {
+            return ['code' => $exception->getCode(), 'error' => $exception->getMessage()];
+        }
     }
 }
