@@ -7,6 +7,12 @@ use flydreamers\shipwire\base\ShipwireComponent;
 class Rate extends ShipwireComponent
 {
     /**
+     * Versions api for rate
+     */
+    const VERSION_3     = 'v3';
+    const VERSION_3_1   = 'v3.1';
+
+    /**
      * Get a quote for a shippment of $items to $address. $options could be changed for different use cases.
      *
      * @param Address $address
