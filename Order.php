@@ -27,15 +27,18 @@ class Order extends ShipwireComponent
      * Gets order details
      * @param $orderId
      * @param bool $expand
+     * @param bool $byExternalId Get order by externalId
      * @return array
      */
-    public function orderDetails($orderId, $expand = false)
+    public function orderDetails($orderId, $expand = false, $byExternalId = false)
     {
+        $route = $this->getRoute('orders/'. ($byExternalId ? 'E' : null) .'{id}', $orderId);
+
         $params = [];
         if ($expand) {
             $params['expand'] = 'all';
         }
-        return $this->get($this->getRoute('orders/{id}', $orderId), $params);
+        return $this->get($route, $params);
     }
 
     /**
