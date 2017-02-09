@@ -2,9 +2,18 @@
 
 namespace flydreamers\shipwire;
 
-class Address
+use flydreamers\shipwire\base\ShipwireComponent;
+
+/**
+ * Class        Address
+ * @package     flydreamers\shipwire
+ * @version     1.0
+ */
+class Address extends ShipwireComponent
 {
+    public $email='';
     public $name='';
+    public $phone='';
     public $address1='';
     public $address2='';
     public $address3='';
@@ -15,6 +24,10 @@ class Address
     public $isCommercial=0;
     public $isPoBox=0;
 
+    /**
+     * Validating api version
+     */
+    const VERSION_3_1   = 'v3.1';
 
     /**
      * Serialize this info as array
@@ -23,7 +36,9 @@ class Address
     public function asArray()
     {
         return [
+            'email' => $this->email,
             'name' => $this->name,
+            'phone' => $this->phone,
             'address1' => $this->address1,
             'address2' => $this->address2,
             'address3' => $this->address3,
@@ -58,5 +73,18 @@ class Address
             }
         }
         return $ret;
+    }
+
+    /**
+     * Validate current address
+     *
+     * @param array $params
+     * @return array|bool
+     */
+    public function validate($params = [])
+    {
+        ShipwireConnector::$version = self::VERSION_3_1;
+
+        return $this->post('addressValidation', $params, $this->asJson());
     }
 }
