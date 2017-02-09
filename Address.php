@@ -4,6 +4,7 @@ namespace flydreamers\shipwire;
 
 class Address
 {
+    public $name='';
     public $address1='';
     public $address2='';
     public $address3='';
@@ -22,6 +23,7 @@ class Address
     public function asArray()
     {
         return [
+            'name' => $this->name,
             'address1' => $this->address1,
             'address2' => $this->address2,
             'address3' => $this->address3,

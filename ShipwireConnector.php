@@ -172,6 +172,9 @@ class ShipwireConnector
                     case 400:
                         throw new InvalidRequestException($data['message'], $data['status']);
                         break;
+                    case 422:
+                        return $data;
+                        break;
                 }
                 throw new ShipwireConnectionException($data['message'], $data['status']);
             }
