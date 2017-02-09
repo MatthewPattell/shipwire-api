@@ -158,6 +158,8 @@ class ShipwireConnector
                     'errors' => $data['errors'],
                     'resource'  => $data['resource']
                 ];
+            } elseif (!empty($data['status'])) {
+                $data['resource'] = $data;
             }
 
             return $onlyResource?$data['resource']:$data;
