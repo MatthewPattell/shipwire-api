@@ -41,11 +41,14 @@ class Order extends ShipwireComponent
     /**
      * Cancels an Order
      * @param $orderId
+     * @param bool $byExternalId Cancel order by externalId
      * @return bool
      */
-    public function cancel($orderId)
+    public function cancel($orderId, $byExternalId = false)
     {
-        $ret = $this->post($this->getRoute('orders/{id}/cancel', $orderId), [], null, true);
+        $route = $this->getRoute('orders/'. ($byExternalId ? 'E' : null) .'{id}/cancel', $orderId);
+
+        $ret = $this->post($route, [], null, true);
         return $ret['status'] == 200;
     }
 
